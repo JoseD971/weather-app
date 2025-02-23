@@ -8,11 +8,39 @@
 <body>
     <main class="container">
         <div class="app-container">
-            <div class="general-info"></div>
+            <div class="main-info">
+                <div class="location-container">
+                    <img id="map-marker-icon" alt="Location icon">
+                    <p id="location">London, England, United Kingdom</p>
+                </div>
+                <div class="weather-icon-container">
+                    <img id="weather-icon" alt="Weather status icon">
+                </div>
+                <div id="temp">
+                    00°C
+                </div>
+                <div id="date">
+                    July 19, 2025
+                </div>
+                <div id="day-week">
+                    Monday, <span id="time">16:30</span>
+                </div>
+                <hr >
+                <div id="cloud-cover">
+                    <img id="cloud-icon" alt="Cloud icon"> Cloudy
+                </div>
+                <div id="rain-prob">
+                    <img id="rain-icon" alt="Rain icon"> Rain - 30%
+                </div>
+
+                <button type="button" id="switch-temp-btn">Change unit</button>
+            </div>
             <form class="search">
                 <div class="search-bar">
-                    <input type="text" class="search-query">
-                    <button type="button" class="search-btn"><img id="search-icon" alt="Search icon"></button>
+                    <input type="text" id="search-query" autocomplete="off">
+                    <button type="button" id="search-btn">
+                        <img id="search-icon" alt="Search icon">
+                    </button>
                 </div>
             </form>
             <div class="today-highlights">

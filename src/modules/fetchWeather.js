@@ -29,6 +29,10 @@ async function getWeatherData (query, unit) {
             uv: weatherData.currentConditions.uvindex,
             temp: weatherData.currentConditions.temp,
             windspeed: weatherData.currentConditions.windspeed,
+            precipprob: weatherData.currentConditions.precipprob,
+            cloudcover: weatherData.currentConditions.cloudcover,
+            snow: weatherData.currentConditions.snow,
+            icon: weatherData.currentConditions.icon,
             week: weatherData.days.slice(0, 6),
         };
 
