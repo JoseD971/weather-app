@@ -23,55 +23,6 @@
     font-family: 'Montserrat', 'Atkinson Hyperlegible Next', 'Roboto';
 }
 
-#screen-saver {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(6, 12, 25, 0.5);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    display: none;
-    z-index: 99;
-}
-
-#loader {
-    position: fixed;
-    z-index: 100;
-    display: none;
-}
-
-@-webkit-keyframes spin {
-    from {
-      -webkit-transform: rotate(0deg);
-    }
-    to {
-      -webkit-transform: rotate(360deg);
-    }
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-#loader::after {
-    content: "";
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border-style: solid;
-    border: 5px solid black;
-    border-top-color: #6cc4ee;
-    border-width: 4px;
-    border-radius: 50%;
-    -webkit-animation: spin 0.8s linear infinite;
-    animation: spin 0.8s linear infinite;
-}
-
 .container {
     height: 100vh;
     display: flex;
@@ -222,12 +173,6 @@
 
 #search-icon:hover {
     cursor: pointer;
-}
-
-#error-msg {
-    color: #d82b0c;
-    text-align: center;
-    margin: 10px 0 10px 0;
 }
 
 .today-highlights {
