@@ -1,5 +1,6 @@
 import './style.css';
 import fetchWeather from './modules/fetchWeather.js';
+import toggleTemp from './modules/toggleTemp.js';
 import Magnify from './resources/icons/ui/magnify.svg';
 import Cloud from './resources/icons/ui/cloud_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg';
 import Rain from './resources/icons/ui/water_drop_24dp_255290_FILL0_wght400_GRAD0_opsz24.svg';
@@ -21,6 +22,7 @@ document.getElementById('search-query').addEventListener('keydown', (event) => {
         event.preventDefault();
     }
 });
+document.getElementById('switch-temp-btn').addEventListener('click', changeScale);
 
 search('london');
 
@@ -56,6 +58,7 @@ async function displayWeather (info) {
     const location = document.getElementById('location');
     const weathericon = document.getElementById('weather-icon');
     const temp = document.getElementById('temp');
+    const tempmetric = document.getElementById('temp-metric');
     const date = document.getElementById('date');
     const dayWeek = document.getElementById('day-week');
     const time = document.getElementById('time');
@@ -72,9 +75,20 @@ async function displayWeather (info) {
 
     location.innerText = info.address;
     temp.innerText = info.temp;
+    tempmetric.innerText = ' °C';
+    document.getElementById('switch-temp-btn').dataset.metric = 'celsius';
     date.innerText = moment().tz(info.timezone).format('MMM Do, YYYY');
     dayWeek.innerText = moment().tz(info.timezone).format('dddd,');
     time.innerText = moment().tz(info.timezone).format('h:mm a');
     cloudCover.innerText = info.conditions + ' - ' + info.cloudcover + ' %';
     rain.innerText = 'Current: '+ info.precip + ' - Probability: ' + info.precipprob + ' %';
+}
+
+function changeScale () {
+    let temp = document.getElementById('temp').textContent;
+    let metric = document.getElementById('switch-temp-btn').dataset.metric;
+
+    document.getElementById('temp').innerText = parseFloat((toggleTemp.convert(temp, metric)).toFixed(2));
+    document.getElementById('switch-temp-btn').dataset.metric = (metric === 'celsius') ? 'fahrenheit': 'celsius';;
+    document.getElementById('temp-metric').innerText = (document.getElementById('switch-temp-btn').dataset.metric === 'celsius') ? ' °C' : ' °F';
 }

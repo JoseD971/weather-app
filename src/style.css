@@ -124,7 +124,12 @@
 
 #temp {
     text-align: center;
-    font-size: 100px;
+    font-size: 80px;
+}
+
+#temp-metric {
+    text-align: center;
+    font-size: 60px;
 }
 
 #date {
