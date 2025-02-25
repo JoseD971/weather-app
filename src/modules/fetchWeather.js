@@ -16,7 +16,7 @@ async function getWeatherData (query, unit) {
         }
 
         const weatherData = await response.json();
-        
+
         const weather = {
             address: weatherData.resolvedAddress, 
             description: weatherData.description, 
@@ -29,10 +29,12 @@ async function getWeatherData (query, unit) {
             uv: weatherData.currentConditions.uvindex,
             temp: weatherData.currentConditions.temp,
             windspeed: weatherData.currentConditions.windspeed,
+            precip: weatherData.currentConditions.precip,
             precipprob: weatherData.currentConditions.precipprob,
             cloudcover: weatherData.currentConditions.cloudcover,
             snow: weatherData.currentConditions.snow,
             icon: weatherData.currentConditions.icon,
+            timezone: weatherData.timezone,
             week: weatherData.days.slice(0, 6),
         };
 

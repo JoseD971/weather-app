@@ -132,14 +132,16 @@
     margin-bottom: 10px;
 }
 
+.main-info hr {
+    margin-top: 10px;
+}
+
 #day-week {
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
 #time {
     color: #6c757d;
-    font-weight: lighter;
 }
 
 #cloud-cover {
