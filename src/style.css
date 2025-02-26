@@ -73,15 +73,13 @@
 }
 
 .container {
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px;
+    padding: 50px;
 }
 
 .app-container {
-    width: 90%;
     display: grid;
     border: 1px solid black;
     /* grid-template: rows / columns */
@@ -119,7 +117,15 @@
 }
 
 #weather-icon {
-    width: 60%;
+    max-height: 150px;
+}
+
+.temp-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
 #temp {
@@ -149,7 +155,7 @@
     color: #6c757d;
 }
 
-#cloud-cover {
+.cloud-cover {
     margin-top: 20px;
     margin-bottom: 10px;
     display: flex;
@@ -157,14 +163,14 @@
     gap: 10px;
 }
 
-#rain-prob {
+.rain-prob {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-#cloud-cover img, #rain-prob img {
+.cloud-cover img, .rain-prob img {
     width: 20px;
 }
 
@@ -239,6 +245,86 @@
 
 .today-highlights {
     grid-row: 2 / 3;
+}
+
+.highlights-container {
+    display: grid;
+    gap: 15px;
+    padding: 15px;
+    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+}
+
+.card {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.desc-box, .sun-box, .feelslike-box {
+    grid-row: 1 / 2;
+}
+
+.uv-box, .wind-box, .humidity-box, .snow-box {
+    grid-row: 2 / 3;
+}
+
+.desc-box {
+    grid-column: 1 / 3;
+    overflow-x: auto;
+}
+
+.sun-box {
+    grid-column: 3 / 4;
+    display: flex;
+    gap: 5px;
+}
+
+.sun-box div  {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sunrise-icon, #sunset-icon {
+    max-width: 50px;
+}
+
+.feelslike-box {
+    grid-column: 4 / 4;
+}
+
+.uv-box {
+    grid-column: 1 / 2;
+}
+
+.wind-box {
+    grid-column: 2 / 3;
+}
+
+.humidity-box {
+    grid-column: 3 / 4;
+}
+
+.snow-box {
+    grid-column: 4 / 4;
+}
+
+.generic-box div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.generic-data {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.generic-icon {
+    width: 50px;
 }
 
 .week-forecast {

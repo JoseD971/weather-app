@@ -20,7 +20,6 @@ async function getWeatherData (query, unit) {
         const weather = {
             address: weatherData.resolvedAddress, 
             description: weatherData.description, 
-            datetime: weatherData.currentConditions.datetime,
             conditions: weatherData.currentConditions.conditions,
             feelslike: weatherData.currentConditions.feelslike,
             humidity: weatherData.currentConditions.humidity,
