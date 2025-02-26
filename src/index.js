@@ -68,6 +68,8 @@ function setErrorMsg (show) {
 }
 
 async function displayWeather (info) {
+    console.log(info);
+    //main weather info 
     const moment = require('moment-timezone');
     const location = document.getElementById('location');
     const weathericon = document.getElementById('weather-icon');
@@ -87,7 +89,6 @@ async function displayWeather (info) {
         console.error("Error loading image:", error);
     });
 
-    //main weather info 
     location.innerText = info.address;
     temp.innerText = info.temp;
     tempmetric.innerText = ' °C';
@@ -116,6 +117,21 @@ async function displayWeather (info) {
     wind.innerText = info.windspeed + ' Km/h';
     humidity.innerText = info.humidity + ' %';
     snow.innerText = info.snow;
+
+    //week forecast
+    const days = document.getElementsByClassName('day-box');
+    for (let i = 0; i < info.week.length; i++) {
+        const weekday = info.week[i];
+        days[i].children[0].innerText = moment(weekday.datetime).add(1, 'days').format('ddd');
+        import(`./resources/icons/weather/${weekday.icon}.svg`)
+        .then((imageModule) => {
+            days[i].children[1].setAttribute('src', imageModule.default);
+        })
+        .catch((error) => {
+            console.error("Error loading image:", error);
+        });
+        days[i].children[2].innerText = weekday.temp + ' °C';
+    }
 }
 
 function changeScale () {

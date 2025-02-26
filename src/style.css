@@ -257,6 +257,7 @@
 .card {
     border: 1px solid black;
     padding: 15px;
+    border-radius: 5px;
 }
 
 .desc-box, .sun-box, .feelslike-box {
@@ -329,4 +330,28 @@
 
 .week-forecast {
     grid-row: 3 / 4;
+}
+
+.forecast-container {
+    padding: 15px;
+    display: grid;
+    gap: 10px;
+    grid-template: 1fr / repeat(6, 1fr);
+}
+
+.day-box {
+    grid-row: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+}
+
+.day {
+    text-align: center;
+}
+
+.day-icon {
+    width: 60px;
 }
